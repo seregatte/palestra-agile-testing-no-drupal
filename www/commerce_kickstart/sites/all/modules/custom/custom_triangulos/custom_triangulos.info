@@ -4,6 +4,7 @@ core = 7.x
 files[] = custom_triangulos.module
 files[] = custom_triangulos.forms.inc
 files[] = custom_triangulos.functions.inc
+files[] = custom_triangulos.test
 
 
 ; Information added by drupal.org packaging script on 2013-05-02
