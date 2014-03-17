@@ -41,7 +41,7 @@ class FeatureContext extends Behat\MinkExtension\Context\MinkContext
             $session->getSelectorsHandler()->selectorToXpath('css', 'div.messages > image')
         );
         if($element){
-            throw new Exception('I am see image!');
+            throw new Exception('I am seeing a image!');
         }
     }
 }
