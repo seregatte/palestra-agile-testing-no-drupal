@@ -33,4 +33,11 @@ class CustomTriangulosUnitTestCase extends DrupalUnitTestCase {
 		$lado3 = 8;
 		$this->assertEqual("escaleno", _custom_triangulos_define($lado1, $lado2, $lado3), 'O triângulo não é escaleno.');
 	}
+
+	public function testTrianguloIsoceles(){
+		$lado1 = 8;
+		$lado2 = 10;
+		$lado3 = 8;
+		$this->assertEqual("isóceles", _custom_triangulos_define($lado1, $lado2, $lado3), 'O triângulo não é isóceles.');
+	}
 }
