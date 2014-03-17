@@ -1,3 +1,4 @@
+@javascript
 Feature: Triângulos
 
 	Scenario: Triângulo Equilátero
