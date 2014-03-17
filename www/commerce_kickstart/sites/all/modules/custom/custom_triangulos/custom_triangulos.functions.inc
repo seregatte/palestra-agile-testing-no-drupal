@@ -14,5 +14,7 @@
 function _custom_triangulos_define($lado1, $lado2, $lado3){
 	if($lado1 == $lado2 && $lado2 == $lado3){
 			return 'equilátero';
+	}elseif ($lado1 != $lado2 && $lado2 != $lado3 && $lado3 != $lado1) {
+			return 'escaleno';
 	}
 }
