@@ -29,4 +29,19 @@ class FeatureContext extends Behat\MinkExtension\Context\MinkContext
     {
         // Initialize your context here
     }
+
+    /**
+     * @Then /^I should not see image$/
+     */
+    public function iShouldNotSeeImage()
+    {
+        $session = $this->getSession();
+        $element = $session->getPage()->find(
+            'xpath',
+            $session->getSelectorsHandler()->selectorToXpath('css', 'div.messages > image')
+        );
+        if($element){
+            throw new Exception('I am see image!');
+        }
+    }
 }
