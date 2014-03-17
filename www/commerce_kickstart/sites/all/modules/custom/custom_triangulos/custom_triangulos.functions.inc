@@ -12,5 +12,7 @@
  * @return mixed Value.
  */
 function _custom_triangulos_define($lado1, $lado2, $lado3){
-
+	if($lado1 == $lado2 && $lado2 == $lado3){
+			return 'equilátero';
+	}
 }
