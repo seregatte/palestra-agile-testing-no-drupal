@@ -55,3 +55,65 @@ class CustomTriangulosUnitTestCase extends DrupalUnitTestCase {
 		$this->assertEqual("", _custom_triangulos_define($lado1, $lado2, $lado3), 'O triângulo não é valido mas não precisa ser validado');
 	}
 }
+
+/**
+* CustomTriangulosWebTestCase
+*
+* @uses     DrupalWebTestCase
+*
+* @category Category
+* @package  Package
+* @author    <>
+* @license  
+* @link     
+*/
+class CustomTriangulosWebTestCase extends DrupalWebTestCase{
+	static function getInfo() {
+		return array(
+			'name' => 'CustomTriangulosWeb',
+			'description' => 'Testes de aceitação de triangulos',
+			'group' => 'Triangulos',
+		);
+	}
+
+	function setUp() {
+    	parent::setUp('custom_triangulos');
+    	$web_user = $this->drupalCreateUser(array('testar triangulos'));
+    	$this->drupalLogin($web_user);
+	}
+
+	function testPermission(){
+	    $this->drupalGet('triangulos');
+	    $this->assertResponse(200);
+	}
+
+	function testTrianguloEquilatero(){
+		$edit = array();
+	    $edit['lado1'] = 2;
+	    $edit['lado2'] = 2;
+	    $edit['lado3'] = 2;
+	    $this->drupalPost('triangulos', $edit, t('Calcular'));
+	    $this->assertResponse(200);
+	    $this->assertRaw('Triângulo equilátero', 'Não foi encontrado o resultado');
+	}
+
+	function testTrianguloEscaleno(){
+		$edit = array();
+	    $edit['lado1'] = 1;
+	    $edit['lado2'] = 2;
+	    $edit['lado3'] = 3;
+	    $this->drupalPost('triangulos', $edit, t('Calcular'));
+	    $this->assertResponse(200);
+	    $this->assertRaw('Triângulo escaleno', 'Não foi encontrado o resultado');
+	}
+
+	function testTrianguloIsoceles(){
+		$edit = array();
+	    $edit['lado1'] = 1;
+	    $edit['lado2'] = 2;
+	    $edit['lado3'] = 2;
+	    $this->drupalPost('triangulos', $edit, t('Calcular'));
+	    $this->assertResponse(200);
+	    $this->assertRaw('Triângulo isóceles', 'Não foi encontrado o resultado');
+	}
+}
