@@ -1,1 +1,29 @@
 <?php
+
+/**
+* CustomTriangulosUnitTestCase
+*
+* @uses     DrupalUnitTestCase
+*
+* @category Category
+* @package  Package
+* @author    <>
+* @license  
+* @link     
+*/
+class CustomTriangulosUnitTestCase extends DrupalUnitTestCase {
+	static function getInfo() {
+		return array(
+			'name' => 'CustomTriangulos',
+			'description' => 'Testes unitarios de triangulos',
+			'group' => 'Triangulos',
+		);
+	}
+
+	public function testTrianguloEquilatero(){
+		$lado1 = 10;
+		$lado2 = 10;
+		$lado3 = 10;
+		$this->assertEqual("equilátero", _custom_triangulos_define($lado1, $lado2, $lado3), 'O triângulo não é equilátero');
+	}
+}
