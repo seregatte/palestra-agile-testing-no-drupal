@@ -1,3 +1,34 @@
 <?php
 
 require_once 'custom_triangulos.functions.inc';
+
+/**
+ * Implements hook_menu
+ * @return array Novos itens de menu.
+ */
+function custom_triangulos_menu(){
+
+	$items['triangulos'] = array(
+		'title' => 'Teste de triângulos',
+		'page callback' => 'drupal_get_form',
+		'page arguments' => array('custom_triangulos_form'),
+		'access arguments' => array('testar triangulos'),
+		'file' => 'custom_triangulos.forms.inc',
+		'type' => MENU_CALLBACK,
+  	);
+
+  	return $items;
+}
+
+/**
+ * Implements hook_permission
+ * @return array Permissões
+ */
+function custom_triangulos_permission() {
+	return array(
+		'testar triangulos' => array(
+			'title' => t('Buscar oficios'),
+			'description' => t('Capacidade de testar triângulos.'),
+		),
+	);
+}
