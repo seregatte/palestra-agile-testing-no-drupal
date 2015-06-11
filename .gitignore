@@ -1,1 +1,6 @@
 .DS_Store
+tests/vendor/*
+tests/vendor/~
+tests/bin/*
+tests/composer.lock
+
