@@ -1,0 +1,6 @@
+web:
+  image: wadmiraal/drupal
+  ports:
+   - "8080:80"
+  volumes:
+   - ../../../www/commerce_kickstart:/var/www
